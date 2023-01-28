@@ -1,0 +1,13 @@
+{% extends "dia/base.html" %}
+{% block title %}Show Contents{% endblock %}
+{% block content %}
+ 
+<h5>{{con.title}}</h5>
+<button type="button" class="btn btn-danger"><a class="text-decoration-none" href="{% url 'dia:delete' con.pk %}">Delete</a></button>
+<button type="button" class="btn btn-light"><a class="text-decoration-none" href="{% url 'dia:edits' con.pk %}">Edit</a></button>
+<br>
+<p>{{con.content}}</p>
+<br>
+<p>Posted on {{con.date}}.</p>
+
+{% endblock %}

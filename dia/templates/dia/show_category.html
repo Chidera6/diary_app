@@ -1,0 +1,11 @@
+{% extends "dia/base_category.html" %}
+{% block title %}Show Category{% endblock %}
+{% block content %}
+{% for a in x %}
+<div class ="content-detail">
+<button type="button" class="btn btn-light"><a class="text-decoration-none" href="{% url 'dia:show-category' a.pk %}">{{a.category}}</a></button>
+<button type="button" class="btn btn-danger"><a class="text-decoration-none" href="{% url 'dia:delete-category' a.pk %}">Delete</a></button>
+<button type="button" class="btn btn-light"><a class="text-decoration-none" href="{% url 'dia:edit-category' a.pk %}">Edit</a></button>
+</div>
+{% endfor %}
+{% endblock %}

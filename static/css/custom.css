@@ -1,0 +1,19 @@
+.navbar {
+    background-color: rgb(117, 148, 117) !important;
+}
+footer{
+    background-color: rgb(117, 148, 117);
+
+}
+
+.btn{
+    background-color: white;
+    color:black;
+}
+
+body {
+    background-image: url("/static/css/images/pexels-ann-poan-5797908.jpg ");
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat; 
+}

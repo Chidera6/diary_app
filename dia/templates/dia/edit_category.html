@@ -1,0 +1,12 @@
+{% extends "dia/base_category.html" %}
+{% block title %}Update Category{% endblock %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+<form action="" method="POST">
+{% csrf_token %}
+{{ form|crispy}}
+<input type="submit" value="Edit Category"/>
+</form>
+<br/><br/>
+{% endblock %}
