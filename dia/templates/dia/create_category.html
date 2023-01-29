@@ -9,8 +9,8 @@
 
         {% if user.is_authenticated %}
         <form class="col-sm-9 m-6" method="post" action="{% url 'dia:add-category' %}">
-        {% csrf_token %}
         {{ form|crispy}}
+        {% csrf_token %}
         <input type="submit">
         </form>
         {% else %}
