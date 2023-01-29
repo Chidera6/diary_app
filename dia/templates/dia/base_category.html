@@ -16,26 +16,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page"  href="{% url 'dia:home' %}" >Home</a>
-
             </li>
+          <li class="nav-item">
+            <a class="nav-link active"aria-current="page"  href="{% url 'dia:logout'  %}">Logout</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active " aria-current="page"  href="{% url 'dia:add-category'  %}">Create Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active"aria-current="page"  href="{% url 'dia:see-category'   %}">see Category</a>
+          </li>  
+            {% else %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page"  href="{% url 'dia:register'  %}">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"  href="{% url 'dia:login'  %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active"aria-current="page"  href="{% url 'dia:logout'  %}">Logout</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link active " aria-current="page"  href="{% url 'dia:add-category'  %}">Create Category</a>
             </li>
-            
             <li class="nav-item">
-              <a class="nav-link active"aria-current="page"  href="{% url 'dia:see-category'   %}">see Category</a>
-            </li>          
+                <a class="nav-link active" aria-current="page"  href="{% url 'dia:login'  %}">Login</a>
+            </li>
+            {% endif %}
           </ul>
       </div>
     </nav>
