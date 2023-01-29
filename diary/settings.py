@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-0w2q1we=750fgod^=w4@w#i(vmm!fv+^xy6v&pji==mjoro(*)
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://.mydomain.com', 'http://.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://diaryapp-production.up.railway.app/','http://0.0.0.0']
 
 # Application definition
 
@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dia',
     'crispy_forms',
+    'whitenoise.runserver_nostatic',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,6 +129,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
