@@ -4,17 +4,16 @@
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
-
-{% load crispy_forms_tags %}         
-<div class="container py-5">
-	<h1>Register</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ register_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
-	</form>
-	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
-</div>
+			{% load crispy_forms_tags %}         
+			<div class="container py-5">
+				<h1>Register</h1>
+				<form method="POST">
+					{% csrf_token %}
+					{{ register_form|crispy }}                    
+					<button class="btn btn-primary" type="submit">Register</button>
+				</form>
+				<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+			</div>
 		</div>
 	</div>
 {% endblock %}

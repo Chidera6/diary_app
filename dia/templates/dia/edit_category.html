@@ -4,9 +4,8 @@
 
 {% load crispy_forms_tags %}
 <form action="" method="POST">
-{% csrf_token %}
-{{ form|crispy}}
-<input type="submit" value="Edit Category"/>
+    {% csrf_token %}
+    {{ form|crispy}}
+    <input type="submit" value="Edit Category"/>
 </form>
-<br/><br/>
 {% endblock %}

@@ -4,12 +4,12 @@
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
-
-{% load crispy_forms_tags %}     
-<form action="" method="POST">
-{{ form|crispy }}
-<input type="submit" value="Edit Content"/>
-</form>
+            {% load crispy_forms_tags %}     
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Edit Content"/>
+            </form>
         </div>
     </div>
 </div>

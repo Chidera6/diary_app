@@ -7,7 +7,8 @@
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
             <form method="post">
-            {{ form|crispy }}  
+                {% csrf_token %}
+                {{ form|crispy }}  
             <input type="submit">
             </form>
         </div>
