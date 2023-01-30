@@ -16,7 +16,7 @@ def register_request(request):
 			user = form.save()
 			login(request, user)
 			return redirect("dia:home")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
+		messages.error(request,"Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request,"dia/register.html", context={"register_form":form})
 
@@ -70,8 +70,6 @@ def add_category(request):
             add_category.save()
             messages.success(request, 'The post has been created successfully.')
             return home(request)
-        else:
-            messages.error(request, 'Please correct the following errors:')
     form = CategoryForm()
     form.fields['user'].queryset = User.objects.filter(username=request.user)
     context = {'form':form}
@@ -84,17 +82,17 @@ def delete_category(request, id):
 
 def edit_category(request, id):
     if request.user.is_authenticated:
-        obj = Category.objects.get(id=id)
-        form = CategoryForm(request.POST or None, instance= obj)
+        edit = Category.objects.get(id=id)
+        form = CategoryForm(request.POST or None, instance=edit)
         if form.is_valid():
-            obj= form.save(commit= False)
-            obj.save()
+            edit = form.save(commit= False)
+            edit.save()
             context= {'form': form}
             return home(request)
         else:
             context= {'form': form}
         form.fields['user'].queryset = User.objects.filter(username=request.user)
-        return render(request,'dia/edit_category.html' , context)
+        return render(request,'dia/edit_category.html',context)
 
 def index(request,id):
     category = Category.objects.get(id=id)
@@ -125,15 +123,15 @@ def add_diary(request):
 def delete(request, id):
     content = Contents.objects.get(id=id)
     content.delete()
-    return index(request,id)
+    return home(request)
 
 def edit(request, id):
-    obj = Contents.objects.get(id=id)
-    form = ContentForm(request.POST or None,instance=obj)
+    edits = Contents.objects.get(id=id)
+    form = ContentForm(request.POST or None,instance=edits)
     context= {'form': form}
     if form.is_valid():
-        obj = form.save(commit=False)
-        obj.save()
+        edits = form.save(commit=False)
+        edits.save()
         context = {'form': form}
         messages.success(request, 'Post updated successfully')
         return home(request)
